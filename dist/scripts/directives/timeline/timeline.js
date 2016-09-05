@@ -1,0 +1,1 @@
+"use strict";angular.module("sbAdminApp").directive("timeline",["CONFIG",function(CONFIG){return{templateUrl:"scripts/directives/timeline/timeline.html?v="+CONFIG.version,restrict:"E",replace:!0}}]);

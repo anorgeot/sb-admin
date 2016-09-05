@@ -1,0 +1,73 @@
+<!-- Created by Arnaud.Norgeot -->
+<div class="row">
+    <section class="col-sm-8 page-title">
+        <h1 class="page-header">Activité</h1>
+    </section>
+    <section class="col-sm-4 page-header datepicker">
+        <div class="row">
+
+            <div class="input-daterange input-group">
+                <input type="text" class="form-control" uib-datepicker-popup="dd MMMM yyyy" ng-model="fromDateString" ng-model-options="{ timezone: timezone }" is-open="popup1.opened" datepicker-options="fromDateOptions" ng-change="fromDateChanged()" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" startdate="fromDateString"/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                <span class="input-group-addon">au</span>
+                <input type="text" class="form-control" uib-datepicker-popup="dd MMMM yyyy" ng-model="toDateString" ng-model-options="{ timezone: timezone }" is-open="popup2.opened" datepicker-options="toDateOptions" ng-required="true" close-text="Close" ng-change="toDateChanged()" enddate="toDateString"/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="row">
+    <div class="col-lg-6 col-sm-12" id="line-chart">
+        <div class="panel panel-default">
+            <div class="panel-heading"><h4>% d'utilisateurs actifs*</h4></div>
+            <div class="panel-body" style="height: 376px">
+                <div class="clearfix">
+                    <img class="img-responsive" style="margin: 0 auto;" src="images/ajax-loader-horizontal.gif" ng-hide="tableOptions.data.length">
+                    <div class="c100 p{{percentActive}} big center">
+                        <span>{{percentActive}}%</span>
+                        <div class="slice">
+                            <div class="bar"></div>
+                            <div class="fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-sm-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-sm-6" ><h4>Utilisateurs inactifs</h4></div>
+                    <div class="col-sm-6">
+                        <form class="search-div" name="form">
+                            <input type="text" class="form-control search-input" name="search" ng-model='filterValue' ng-keypress="searchFunct($event)" placeholder="ID utilisateur, Date, Type…" ng-change="changeSearch()" required>
+                            <span class="glyphicon glyphicon-remove-circle clearSearch-btn" style="color:dodgerblue" ng-click="clearSearch()" ng-hide="form.search.$error.required"></span>
+                              <span class="input-group-btn search-span">
+                                <button class="btn btn-default" type="button" ng-click="filter()">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </button>
+                              </span>
+                        </form><!-- /input-group -->
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body" ng-hide="noData">
+                <div class="dataTable_wrapper">
+                    <img class="img-responsive" style="margin: 0 auto;" src="images/ajax-loader-horizontal.gif" ng-hide="dataLoading">
+                    <div ui-grid="tableOptions" class="activity grid"></div>
+                </div>
+            </div>
+            <h2 class="text-center" ng-show="noData" style="margin-top: 20%; margin-bottom: 20%;">Aucun utilisateur inactif</h2>
+        </div>
+    </div>
+</div>
+<p class="text-muted">* Un utilisateur est actif s’il a réalisé au moins un trajet sur la période.</p>
+<!--<div ng-app="miniapp" ng-style="style()" resize>
+    window.height: {{windowHeight}} <br />
+    window.width: {{windowWidth}} <br />
+</div>-->

@@ -1,0 +1,16 @@
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><img height="100" src="images/logo_wenow.png" alt="WeNow" style="max-height: 50px; margin-top: -15px;"></a>
+        <a class="navbar-brand"><img ng-src="images/logo{{globals.currentUser.company_id}}.png" ng-show="globals.currentUser.company_id" height="100" alt="" style="max-height: 50px; margin-top: -15px;"></a>
+    </div>
+    <!-- /.navbar-header -->
+    <header-notification></header-notification>
+
+    <sidebar></sidebar>
+</nav>

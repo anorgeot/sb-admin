@@ -1,0 +1,75 @@
+ <!-- Created by Arnaud.Norgeot -->
+<div>
+    <div class="row">
+        <section class="col-sm-8 page-title">
+            <h1 class="page-header">Tableau de bord</h1>
+        </section>
+        <section class="col-sm-4 page-header datepicker">
+            <div class="row">
+
+                <div class="input-daterange input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup="dd MMMM yyyy" ng-model="fromDateString" ng-model-options="{ timezone: timezone }" is-open="popup1.opened" datepicker-options="fromDateOptions" ng-change="fromDateChanged()" ng-required="true" close-text="Close" alt-input-formats="altInputFormats"/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                    <span class="input-group-addon">au</span>
+                    <input type="text" class="form-control" uib-datepicker-popup="dd MMMM yyyy" ng-model="toDateString" ng-model-options="{ timezone: timezone }" is-open="popup2.opened" datepicker-options="toDateOptions" ng-required="true" close-text="Close" ng-change="toDateChanged()"/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+        <stats units="km" comments="" colour="yellow" type="car" goto="home" task="distance" large="1" mid="2" startdate="fromDateString" enddate="toDateString"></stats>
+        <stats units="personnes" comments="" colour="yellow" type="group" goto="/" large="1" mid="5" startdate="fromDateString" enddate="toDateString"></stats>
+    </div>
+    <div class="row">
+
+        <stats units="trajets"  comments="dont ::percent::% de moins de 1.5 km" colour="primary" type="random" goto="/" large="0" mid="4" startdate="fromDateString" enddate="toDateString"></stats>
+
+        <stats units="%" comments="urbain" colour="primary" type="building" goto="/" task="urbain" large="0" mid="3" startdate="fromDateString" enddate="toDateString"></stats>
+        <stats units="%" comments="mixte" colour="primary" type="home" goto="/" large="0" task="mixed" mid="3" startdate="fromDateString" enddate="toDateString"></stats>
+        <stats units="%" comments="extra-urbain" colour="primary" type="road" goto="/" large="0" task="extra" mid="3" startdate="fromDateString" enddate="toDateString"></stats>
+
+    </div>
+    <div class="row">
+        <stats units="kg" comments="de CO2 émis et neutralisés" colour="green" type="cloud" goto="/" large="1" task="co2" mid="2" startdate="fromDateString" enddate="toDateString"></stats>
+        <stats units="arbres" comments="absorbent ce CO2 en un an" colour="green" type="tree" goto="/" large="0" task="trees" mid="2" startdate="fromDateString" enddate="toDateString"></stats>
+        <stats units="litres" comments="consommés" colour="red" type="flask" goto="/" large="0" task="fuel" mid="2" startdate="fromDateString" enddate="toDateString"></stats>
+    </div>
+    <!-- /.panel -->
+    <!--<div class="row">
+        <div class="col-lg-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-clock-o fa-fw"></i> Responsive Timeline
+                </div>
+                &lt;!&ndash; /.panel-heading &ndash;&gt;
+                <timeline></timeline>
+                &lt;!&ndash; /.panel-body &ndash;&gt;
+            </div>
+            &lt;!&ndash; /.panel &ndash;&gt;
+        </div>
+        &lt;!&ndash; /.col-lg-8 &ndash;&gt;
+        <div class="col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-bell fa-fw"></i> Notifications Panel
+                </div>
+                &lt;!&ndash; /.panel-heading &ndash;&gt;
+                <notifications></notifications>
+                &lt;!&ndash; /.panel-body &ndash;&gt;
+            </div>
+            &lt;!&ndash; /.panel &ndash;&gt;
+
+            <chat></chat>
+            &lt;!&ndash; /.panel .chat-panel &ndash;&gt;
+        </div>
+        &lt;!&ndash; /.col-lg-4 &ndash;&gt;
+    </div>-->
+    <!-- /.row -->
+</div>

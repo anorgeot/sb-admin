@@ -1,0 +1,16 @@
+<section class="col-sm-4 page-header datepicker">
+    <div class="row">
+
+        <div class="input-daterange input-group">
+            <input type="text" class="form-control" uib-datepicker-popup="dd MMMM yyyy" ng-model="fromDateString" ng-model-options="{ timezone: timezone }" is-open="popup1.opened" datepicker-options="fromDateOptions" ng-change="fromDateChanged()" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" startdate="fromDateString"/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+            <span class="input-group-addon">au</span>
+            <input type="text" class="form-control" uib-datepicker-popup="dd MMMM yyyy" ng-model="toDateString" ng-model-options="{ timezone: timezone }" is-open="popup2.opened" datepicker-options="toDateOptions" ng-required="true" close-text="Close" ng-change="toDateChanged()" enddate="toDateString"/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+        </div>
+    </div>
+</section>
